@@ -17,7 +17,7 @@ spec:
             - | 
               curl -X POST -H "Content-Type: application/json" \
               -d '{"message": "Entrou em Pre Sync !!"}' \
-              https://purple-griffin-14.webhook.cool
+              https://webhook.marod.dev/api/4bwISswemTaVzxGOakkA/capture
       restartPolicy: Never
 
 ---
@@ -41,7 +41,7 @@ spec:
             - | 
               curl -X POST -H "Content-Type: application/json" \
               -d '{"message": "Entrou em Sync !!"}' \
-              https://purple-griffin-14.webhook.cool
+              https://webhook.marod.dev/api/4bwISswemTaVzxGOakkA/capture
       restartPolicy: Never
 
 ---
@@ -65,5 +65,5 @@ spec:
             - | 
               curl -X POST -H "Content-Type: application/json" \
               -d '{"message": "Entrou em Post Sync !!"}' \
-              https://purple-griffin-14.webhook.cool
+              https://webhook.marod.dev/api/4bwISswemTaVzxGOakkA/capture
       restartPolicy: Never
