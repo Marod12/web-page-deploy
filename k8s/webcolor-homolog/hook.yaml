@@ -1,0 +1,69 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pre-sync
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  template:
+    spec:
+      containers:
+        - name: chamada
+          image: curlimages/curl:latest
+          command:
+            - /bin/sh
+            - -c
+            - | 
+              curl -X POST -H "Content-Type: application/json" \
+              -d '{"message": "Entrou em Pre Sync !!"}' \
+              https://webhook.marod.dev/api/4bwISswemTaVzxGOakkA/capture/argocd/pre-sync/homolog
+      restartPolicy: Never
+
+---
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sync
+  annotations:
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  template:
+    spec:
+      containers:
+        - name: chamada
+          image: curlimages/curl:latest
+          command:
+            - /bin/sh
+            - -c
+            - | 
+              curl -X POST -H "Content-Type: application/json" \
+              -d '{"message": "Entrou em Sync !!"}' \
+              https://webhook.marod.dev/api/4bwISswemTaVzxGOakkA/capture/argocd/sync/homolog
+      restartPolicy: Never
+
+---
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: post-sync
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  template:
+    spec:
+      containers:
+        - name: chamada
+          image: curlimages/curl:latest
+          command:
+            - /bin/sh
+            - -c
+            - | 
+              curl -X POST -H "Content-Type: application/json" \
+              -d '{"message": "Entrou em Post Sync !!"}' \
+              https://webhook.marod.dev/api/4bwISswemTaVzxGOakkA/capture/argocd/post-sync/homolog
+      restartPolicy: Never
