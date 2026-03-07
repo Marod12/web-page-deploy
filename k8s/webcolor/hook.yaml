@@ -17,7 +17,7 @@ spec:
             - | 
               curl -X POST -H "Content-Type: application/json" \
               -d '{"message": "Entrou em Pre Sync !!"}' \
-              https://webhook.marod.dev/api/4bwISswemTaVzxGOakkA/capture
+              https://webhook.marod.dev/api/4bwISswemTaVzxGOakkA/capture/argocd/pre-sync
       restartPolicy: Never
 
 ---
@@ -41,7 +41,7 @@ spec:
             - | 
               curl -X POST -H "Content-Type: application/json" \
               -d '{"message": "Entrou em Sync !!"}' \
-              https://webhook.marod.dev/api/4bwISswemTaVzxGOakkA/capture
+              https://webhook.marod.dev/api/4bwISswemTaVzxGOakkA/capture/argocd/sync
       restartPolicy: Never
 
 ---
@@ -65,5 +65,5 @@ spec:
             - | 
               curl -X POST -H "Content-Type: application/json" \
               -d '{"message": "Entrou em Post Sync !!"}' \
-              https://webhook.marod.dev/api/4bwISswemTaVzxGOakkA/capture
+              https://webhook.marod.dev/api/4bwISswemTaVzxGOakkA/capture/argocd/post-sync
       restartPolicy: Never
