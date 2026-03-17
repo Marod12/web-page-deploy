@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: webpage
-        image: marod12/web-color:blue2
+        image: marod12/web-color:blue3
         ports:
         - containerPort: 80
 ---
