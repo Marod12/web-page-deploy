@@ -14,7 +14,7 @@ spec:
           address: https://prometheus-server.monitoramento.svc.cluster.local
           query: | 
             scalar( 
-              sum(rate(nginx_http_requests_total{host="webcolor", status=~"2.."}[2m])) 
+              sum(rate(nginx_http_requests_total{app="webcolor", status=~"2.."}[2m])) 
               / 
-              sum(rate(nginx_http_requests_total{host="webcolor"}[2m])) 
+              sum(rate(nginx_http_requests_total{app="webcolor"}[2m])) 
             )
