@@ -11,7 +11,7 @@ spec:
       failureCondition: result < 0.8  # 80%
       provider:
         prometheus:
-          address: https://prometheus-server.monitoramento.svc.cluster.local
+          address: http://prometheus-server.monitoramento.svc.cluster.local
           query: | 
             scalar( 
               sum(rate(nginx_http_requests_total{app="webcolor", status=~"2..|304"}[2m])) 
